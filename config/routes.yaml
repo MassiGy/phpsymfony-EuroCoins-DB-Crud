@@ -1,3 +1,5 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+# We will use annotations rather then yaml files for the routing.
+# consider installing annotation through this commands: 
+#   $ composer require annotations
+#
+# (This should of been done through the initial $ composer install)
