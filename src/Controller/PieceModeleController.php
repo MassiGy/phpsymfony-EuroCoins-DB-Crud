@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\P06Collectionneur;
 use App\Entity\P06PieceModele;
 use App\Form\P06PieceModeleType;
 use App\Repository\P06PieceModeleRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,7 +30,7 @@ class PieceModeleController extends AbstractController
     /**
      * @Route("/new", name="app_piece_modele_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, P06PieceModeleRepository $p06PieceModeleRepository): Response
+    public function new(Request $request,EntityManagerInterface $em, P06PieceModeleRepository $p06PieceModeleRepository): Response
     {
         $p06PieceModele = new P06PieceModele();
         $form = $this->createForm(P06PieceModeleType::class, $p06PieceModele);
@@ -36,6 +38,16 @@ class PieceModeleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $p06PieceModeleRepository->add($p06PieceModele, true);
+
+            foreach ($form['collections']->getData()->getValues() as $v) {
+
+                /** @var P06Collectionneur $collectionneur */
+                $collectionneur = $em->getRepository(P06Collectionneur::class)->find($v->getId());
+                if ($collectionneur) {
+                    $collectionneur->addModeleCollectionne($p06PieceModele);
+                }
+            }
+            $em->flush();           // @todo: if we flush here maybe we need to pass false to the above call to add to not flush twice? 
 
             return $this->redirectToRoute('app_piece_modele_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -59,13 +71,24 @@ class PieceModeleController extends AbstractController
     /**
      * @Route("/{id}/edit", name="app_piece_modele_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, P06PieceModele $p06PieceModele, P06PieceModeleRepository $p06PieceModeleRepository): Response
+    public function edit(Request $request, EntityManagerInterface $em, P06PieceModele $p06PieceModele, P06PieceModeleRepository $p06PieceModeleRepository): Response
     {
         $form = $this->createForm(P06PieceModeleType::class, $p06PieceModele);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $p06PieceModeleRepository->add($p06PieceModele, true);
+
+
+            foreach ($form['collections']->getData()->getValues() as $v) {
+
+                /** @var P06Collectionneur $collectionneur */
+                $collectionneur = $em->getRepository(P06Collectionneur::class)->find($v->getId());
+                if ($collectionneur) {
+                    $collectionneur->addModeleCollectionne($p06PieceModele);
+                }
+            }
+            $em->flush();           // @todo: if we flush here maybe we need to pass false to the above call to add to not flush twice? 
 
             return $this->redirectToRoute('app_piece_modele_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -79,10 +102,16 @@ class PieceModeleController extends AbstractController
     /**
      * @Route("/{id}", name="app_piece_modele_delete", methods={"POST"})
      */
-    public function delete(Request $request, P06PieceModele $p06PieceModele, P06PieceModeleRepository $p06PieceModeleRepository): Response
+    public function delete(Request $request,EntityManagerInterface $em, P06PieceModele $p06PieceModele, P06PieceModeleRepository $p06PieceModeleRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$p06PieceModele->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $p06PieceModele->getId(), $request->request->get('_token'))) {
             $p06PieceModeleRepository->remove($p06PieceModele, true);
+
+
+            foreach ($p06PieceModele->getCollections() as $collectionneur) {
+               $collectionneur->removeModeleCollectionne($p06PieceModele);
+            }
+            $em->flush();           // @todo: if we flush here maybe we need to pass false to the above call to add to not flush twice? 
         }
 
         return $this->redirectToRoute('app_piece_modele_index', [], Response::HTTP_SEE_OTHER);

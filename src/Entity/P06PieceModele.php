@@ -59,7 +59,9 @@ class P06PieceModele
     /**
      * @ORM\ManyToMany(targetEntity=P06Collectionneur::class, mappedBy="modelesCollectionnes")
      */
-    private $collections;
+    private $collections; // @todo: changer nom attribut, il contient la liste des collectionneurs ayant ce modele et pas les collections
+                          //        attention, il faudra donc changer les template et les fichier de test aussi et les forumulaire (refaire make:crud)
+
 
     public function __construct()
     {
@@ -69,6 +71,11 @@ class P06PieceModele
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id)
+    {
+        $this->id = $id;
     }
 
     public function getPieceVersion(): ?string
@@ -153,6 +160,15 @@ class P06PieceModele
         $this->PieceCaracteristique = $PieceCaracteristique;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return 
+            "Version: ".$this->PieceVersion . ", " .
+            "Valeur: ". $this->PieceValeur . ", " .
+            "Date Frappée: ". $this->PieceDateFrappee->format("d/m/Y") . ", " .
+            "Quantité Frappée: ". $this->PieceQuantiteFrappee;
     }
 
     /**

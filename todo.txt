@@ -1,4 +1,5 @@
-* Create P06_Collectionner as a junction table, not as a standalone Entity. Then make sure that all 
-  the schemmas are valide using to doctrine:schemma:validate command.
-* Make crud for all the entities
+* Figure out how to proprely setup the many to many relationship between PieceModele et Collectionneur.
 * Test the controlleurs.
+
+
+

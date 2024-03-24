@@ -38,6 +38,10 @@ class P06PiecePays
     {
         return $this->id;
     }
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
 
     public function getPaysNom(): ?string
     {
@@ -49,6 +53,11 @@ class P06PiecePays
         $this->PaysNom = $PaysNom;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->PaysNom;
     }
 
     /**

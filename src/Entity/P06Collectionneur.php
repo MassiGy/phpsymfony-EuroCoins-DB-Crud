@@ -43,6 +43,11 @@ class P06Collectionneur
         return $this->id;
     }
 
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
     public function getCollectionneurNom(): ?string
     {
         return $this->CollectionneurNom;
@@ -67,6 +72,12 @@ class P06Collectionneur
         return $this;
     }
 
+    public function __toString()
+    {
+        return 
+            "Prénom: ".$this->CollectionneurPrenom . ", " .
+            "Nom: ". $this->CollectionneurNom;
+    }
     /**
      * @return Collection<int, P06PieceModele>
      */
@@ -79,6 +90,7 @@ class P06Collectionneur
     {
         if (!$this->modelesCollectionnes->contains($modele)) {
             $this->modelesCollectionnes[] = $modele;
+            $modele->addCollection($this);
         }
 
         return $this;
@@ -86,7 +98,10 @@ class P06Collectionneur
 
     public function removeModeleCollectionne(P06PieceModele $modele): self
     {
-        $this->modelesCollectionnes->removeElement($modele);
+        if($this->modelesCollectionnes->removeElement($modele))
+        {
+            $modele->removeCollection($this);
+        }
 
         return $this;
     }

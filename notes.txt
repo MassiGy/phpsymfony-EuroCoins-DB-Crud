@@ -1,0 +1,19 @@
+* The ManyToMany relationship that we have between PieceModele and Collectionneur is represented by a junction table in the database
+created through the doctrine orm. Note that, this junction table, is not linked to another standalone entity, thus  does not have an 
+attribute called QteCollection as the Entity/Association schema design indicates, however this value/data can be easily calculated 
+through a count() sql function call.
+
+* About the many to many relationship between PieceModele and Collectionneur, the attribute refering to Collectionneur from PieceModele is 
+called 'collections' and this should be changed to a better name (like: 'collectionneurs'), note that if such action is taken, the crud should
+related assets/files should be regenerated.
+
+* About ManyToMany relationship, Doctrine does not set bidirectionnal mappings in the database for both concerned Entity in the relationship. It 
+only sets a unidirectionnal mapping from the owning side ( the entity containing the inversedBy key ), but it do not do it for the other side (
+the entity containing the mappedBy key ), this one should be done manually in the controllers, or it can be added as an event listenner function 
+in the form for that EntityClasseType
+
+Links: 
+*   https://stackoverflow.com/questions/13670471/database-fail-the-database-schema-is-not-in-sync-with-the-current-mapping-file
+*   https://stackoverflow.com/questions/27094901/symfony-cant-we-have-a-hidden-entity-field
+*   https://stackoverflow.com/questions/41213014/could-not-determine-access-type-for-property-file
+*   https://stackoverflow.com/questions/30463674/symfony-form-not-saving-entity-with-manytomany-relation

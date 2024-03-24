@@ -53,6 +53,11 @@ class P06PieceCaracteristique
         return $this->id;
     }
 
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
     public function getPieceFaceCommune(): ?string
     {
         return $this->PieceFaceCommune;
@@ -99,6 +104,14 @@ class P06PieceCaracteristique
         $this->PieceMateriau = $PieceMateriau;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return 
+            "Face Commune: ".$this->PieceFaceCommune . ", " .
+            "Masse: ". $this->PieceMasse . ", " .
+            "Taille: ". $this->PieceTaille . ", " .
+            "Materiau: ". $this->PieceMateriau;
     }
 
     /**

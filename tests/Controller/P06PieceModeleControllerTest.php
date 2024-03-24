@@ -49,7 +49,7 @@ class P06PieceModeleControllerTest extends WebTestCase
             'p06_piece_modele[PieceValeur]' => 'Testing',
             'p06_piece_modele[PieceDateFrappee]' => 'Testing',
             'p06_piece_modele[PieceQuantiteFrappee]' => 'Testing',
-            'p06_piece_modele[PaysID]' => 'Testing',
+            'p06_piece_modele[PiecePays]' => 'Testing',
             'p06_piece_modele[PieceTranche]' => 'Testing',
             'p06_piece_modele[PieceCaracteristique]' => 'Testing',
             'p06_piece_modele[collections]' => 'Testing',
@@ -69,7 +69,7 @@ class P06PieceModeleControllerTest extends WebTestCase
         $fixture->setPieceValeur('My Title');
         $fixture->setPieceDateFrappee('My Title');
         $fixture->setPieceQuantiteFrappee('My Title');
-        $fixture->setPaysID('My Title');
+        $fixture->setPiecePays('My Title');
         $fixture->setPieceTranche('My Title');
         $fixture->setPieceCaracteristique('My Title');
         $fixture->setCollections('My Title');
@@ -93,7 +93,7 @@ class P06PieceModeleControllerTest extends WebTestCase
         $fixture->setPieceValeur('My Title');
         $fixture->setPieceDateFrappee('My Title');
         $fixture->setPieceQuantiteFrappee('My Title');
-        $fixture->setPaysID('My Title');
+        $fixture->setPiecePays('My Title');
         $fixture->setPieceTranche('My Title');
         $fixture->setPieceCaracteristique('My Title');
         $fixture->setCollections('My Title');
@@ -108,7 +108,7 @@ class P06PieceModeleControllerTest extends WebTestCase
             'p06_piece_modele[PieceValeur]' => 'Something New',
             'p06_piece_modele[PieceDateFrappee]' => 'Something New',
             'p06_piece_modele[PieceQuantiteFrappee]' => 'Something New',
-            'p06_piece_modele[PaysID]' => 'Something New',
+            'p06_piece_modele[PiecePays]' => 'Something New',
             'p06_piece_modele[PieceTranche]' => 'Something New',
             'p06_piece_modele[PieceCaracteristique]' => 'Something New',
             'p06_piece_modele[collections]' => 'Something New',
@@ -123,7 +123,7 @@ class P06PieceModeleControllerTest extends WebTestCase
         self::assertSame('Something New', $fixture[0]->getPieceValeur());
         self::assertSame('Something New', $fixture[0]->getPieceDateFrappee());
         self::assertSame('Something New', $fixture[0]->getPieceQuantiteFrappee());
-        self::assertSame('Something New', $fixture[0]->getPaysID());
+        self::assertSame('Something New', $fixture[0]->getPiecePays());
         self::assertSame('Something New', $fixture[0]->getPieceTranche());
         self::assertSame('Something New', $fixture[0]->getPieceCaracteristique());
         self::assertSame('Something New', $fixture[0]->getCollections());
@@ -141,7 +141,7 @@ class P06PieceModeleControllerTest extends WebTestCase
         $fixture->setPieceValeur('My Title');
         $fixture->setPieceDateFrappee('My Title');
         $fixture->setPieceQuantiteFrappee('My Title');
-        $fixture->setPaysID('My Title');
+        $fixture->setPiecePays('My Title');
         $fixture->setPieceTranche('My Title');
         $fixture->setPieceCaracteristique('My Title');
         $fixture->setCollections('My Title');

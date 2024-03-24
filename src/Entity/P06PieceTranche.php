@@ -38,6 +38,11 @@ class P06PieceTranche
         return $this->id;
     }
 
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
     public function getPieceTranche(): ?string
     {
         return $this->PieceTranche;
@@ -48,6 +53,11 @@ class P06PieceTranche
         $this->PieceTranche = $PieceTranche;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->PieceTranche;
     }
 
     /**
