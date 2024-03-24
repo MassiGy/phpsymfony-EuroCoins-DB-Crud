@@ -3,7 +3,7 @@
 {% block title %}P06Collectionneur{% endblock %}
 
 {% block body %}
-    <h1>P06Collectionneur</h1>
+    <h1 class="mb-3">P06Collectionneur</h1>
 
     <table class="table">
         <tbody>
@@ -22,9 +22,12 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_collectionneur_index') }}">back to list</a>
+    <div class="d-flex">
+        <a class="btn btn-primary mr-3" href="{{ path('app_collectionneur_index') }}">back to list</a>
 
-    <a href="{{ path('app_collectionneur_edit', {'id': p06_collectionneur.id}) }}">edit</a>
+        <a class="btn btn-warning mr-3" href="{{ path('app_collectionneur_edit', {'id': p06_collectionneur.id}) }}">edit</a>
 
-    {{ include('collectionneur/_delete_form.html.twig') }}
+        {{ include('collectionneur/_delete_form.html.twig') }}
+
+    </div>
 {% endblock %}

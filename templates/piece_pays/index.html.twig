@@ -3,7 +3,7 @@
 {% block title %}P06PiecePays index{% endblock %}
 
 {% block body %}
-    <h1>P06PiecePays index</h1>
+    <h1 class="mb-5">P06PiecePays index</h1>
 
     <table class="table">
         <thead>
@@ -18,9 +18,9 @@
             <tr>
                 <td>{{ p06_piece_pay.id }}</td>
                 <td>{{ p06_piece_pay.PaysNom }}</td>
-                <td>
-                    <a href="{{ path('app_piece_pays_show', {'id': p06_piece_pay.id}) }}">show</a>
-                    <a href="{{ path('app_piece_pays_edit', {'id': p06_piece_pay.id}) }}">edit</a>
+                <td class="d-flex">
+                    <a class="btn btn-primary mx-3" href="{{ path('app_piece_pays_show', {'id': p06_piece_pay.id}) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('app_piece_pays_edit', {'id': p06_piece_pay.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +31,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_piece_pays_new') }}">Create new</a>
+    <a class="btn btn-outline-primary mx-3" href="{{ path('app_piece_pays_new') }}">Create new</a>
 {% endblock %}

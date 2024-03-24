@@ -3,7 +3,7 @@
 {% block title %}P06PieceCaracteristique{% endblock %}
 
 {% block body %}
-    <h1>P06PieceCaracteristique</h1>
+    <h1 class="mb-5">P06PieceCaracteristique</h1>
 
     <table class="table">
         <tbody>
@@ -30,9 +30,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_piece_caracteristique_index') }}">back to list</a>
+    <div class="d-flex">
+        <a class="btn btn-primary mr-3" href="{{ path('app_piece_caracteristique_index') }}">back to list</a>
 
-    <a href="{{ path('app_piece_caracteristique_edit', {'id': p06_piece_caracteristique.id}) }}">edit</a>
+        <a class="btn btn-warning mr-3" href="{{ path('app_piece_caracteristique_edit', {'id': p06_piece_caracteristique.id}) }}">edit</a>
 
-    {{ include('piece_caracteristique/_delete_form.html.twig') }}
+        {{ include('piece_caracteristique/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
