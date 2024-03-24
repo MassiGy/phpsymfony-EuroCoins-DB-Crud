@@ -24,14 +24,14 @@ class P06PiecePays
     private $PaysNom;
 
     /**
-     * @ORM\OneToMany(targetEntity=P06PieceModele::class, mappedBy="PaysID")
+     * @ORM\OneToMany(targetEntity=P06PieceModele::class, mappedBy="PiecePays")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $PieceID;
+    private $PiecesModelesProduits;
 
     public function __construct()
     {
-        $this->PieceID = new ArrayCollection();
+        $this->PiecesModelesProduits = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -54,27 +54,27 @@ class P06PiecePays
     /**
      * @return Collection<int, P06PieceModele>
      */
-    public function getPieceID(): Collection
+    public function getPiecesModelesProduits(): Collection
     {
-        return $this->PieceID;
+        return $this->PiecesModelesProduits;
     }
 
-    public function addPieceID(P06PieceModele $pieceID): self
+    public function addPieceModeleProduit(P06PieceModele $modele): self
     {
-        if (!$this->PieceID->contains($pieceID)) {
-            $this->PieceID[] = $pieceID;
-            $pieceID->setPiecePays($this);
+        if (!$this->PiecesModelesProduits->contains($modele)) {
+            $this->PiecesModelesProduits[] = $modele;
+            $modele->setPiecePays($this);
         }
 
         return $this;
     }
 
-    public function removePieceID(P06PieceModele $pieceID): self
+    public function removePieceModeleProduit(P06PieceModele $modele): self
     {
-        if ($this->PieceID->removeElement($pieceID)) {
+        if ($this->PiecesModelesProduits->removeElement($modele)) {
             // set the owning side to null (unless already changed)
-            if ($pieceID->getPiecePays() === $this) {
-                $pieceID->setPiecePays(null);
+            if ($modele->getPiecePays() === $this) {
+                $modele->setPiecePays(null);
             }
         }
 

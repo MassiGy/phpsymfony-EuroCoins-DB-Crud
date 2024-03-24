@@ -39,10 +39,10 @@ class P06PieceModele
     private $PieceQuantiteFrappee;
 
     /**
-     * @ORM\ManyToOne(targetEntity=P06PiecePays::class, inversedBy="PieceID")
+     * @ORM\ManyToOne(targetEntity=P06PiecePays::class, inversedBy="PiecesModelesProduits")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $PaysID;
+    private $PiecePays;
 
     /**
      * @ORM\ManyToOne(targetEntity=P06PieceTranche::class, inversedBy="PieceID")
@@ -121,12 +121,12 @@ class P06PieceModele
 
     public function getPiecePays(): ?P06PiecePays
     {
-        return $this->PaysID;
+        return $this->PiecePays;
     }
 
     public function setPiecePays(?P06PiecePays $PiecePays): self
     {
-        $this->PaysID = $PiecePays;
+        $this->PiecePays = $PiecePays;
 
         return $this;
     }
