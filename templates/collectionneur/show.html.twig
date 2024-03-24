@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P06Collectionneur{% endblock %}
+
+{% block body %}
+    <h1>P06Collectionneur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ p06_collectionneur.id }}</td>
+            </tr>
+            <tr>
+                <th>CollectionneurNom</th>
+                <td>{{ p06_collectionneur.CollectionneurNom }}</td>
+            </tr>
+            <tr>
+                <th>CollectionneurPrenom</th>
+                <td>{{ p06_collectionneur.CollectionneurPrenom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_collectionneur_index') }}">back to list</a>
+
+    <a href="{{ path('app_collectionneur_edit', {'id': p06_collectionneur.id}) }}">edit</a>
+
+    {{ include('collectionneur/_delete_form.html.twig') }}
+{% endblock %}

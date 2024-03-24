@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P06PiecePays index{% endblock %}
+
+{% block body %}
+    <h1>P06PiecePays index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>PaysNom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for p06_piece_pay in p06_piece_pays %}
+            <tr>
+                <td>{{ p06_piece_pay.id }}</td>
+                <td>{{ p06_piece_pay.PaysNom }}</td>
+                <td>
+                    <a href="{{ path('app_piece_pays_show', {'id': p06_piece_pay.id}) }}">show</a>
+                    <a href="{{ path('app_piece_pays_edit', {'id': p06_piece_pay.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_piece_pays_new') }}">Create new</a>
+{% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Repository\P06PieceModeleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -166,7 +167,7 @@ class P06PieceModele
     {
         if (!$this->collections->contains($collection)) {
             $this->collections[] = $collection;
-            $collection->addCollectionnement($this);
+            $collection->addModeleCollectionne($this);
         }
 
         return $this;
@@ -175,7 +176,7 @@ class P06PieceModele
     public function removeCollection(P06Collectionneur $collection): self
     {
         if ($this->collections->removeElement($collection)) {
-            $collection->removeCollectionnement($this);
+            $collection->removeModeleCollectionne($this);
         }
 
         return $this;

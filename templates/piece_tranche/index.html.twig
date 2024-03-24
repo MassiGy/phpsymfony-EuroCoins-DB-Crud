@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P06PieceTranche index{% endblock %}
+
+{% block body %}
+    <h1>P06PieceTranche index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>PieceTranche</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for p06_piece_tranche in p06_piece_tranches %}
+            <tr>
+                <td>{{ p06_piece_tranche.id }}</td>
+                <td>{{ p06_piece_tranche.PieceTranche }}</td>
+                <td>
+                    <a href="{{ path('app_piece_tranche_show', {'id': p06_piece_tranche.id}) }}">show</a>
+                    <a href="{{ path('app_piece_tranche_edit', {'id': p06_piece_tranche.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_piece_tranche_new') }}">Create new</a>
+{% endblock %}

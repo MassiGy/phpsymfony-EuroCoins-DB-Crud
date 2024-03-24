@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P06PieceModele{% endblock %}
+
+{% block body %}
+    <h1>P06PieceModele</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ p06_piece_modele.id }}</td>
+            </tr>
+            <tr>
+                <th>PieceVersion</th>
+                <td>{{ p06_piece_modele.PieceVersion }}</td>
+            </tr>
+            <tr>
+                <th>PieceValeur</th>
+                <td>{{ p06_piece_modele.PieceValeur }}</td>
+            </tr>
+            <tr>
+                <th>PieceDateFrappee</th>
+                <td>{{ p06_piece_modele.PieceDateFrappee ? p06_piece_modele.PieceDateFrappee|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>PieceQuantiteFrappee</th>
+                <td>{{ p06_piece_modele.PieceQuantiteFrappee }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_piece_modele_index') }}">back to list</a>
+
+    <a href="{{ path('app_piece_modele_edit', {'id': p06_piece_modele.id}) }}">edit</a>
+
+    {{ include('piece_modele/_delete_form.html.twig') }}
+{% endblock %}

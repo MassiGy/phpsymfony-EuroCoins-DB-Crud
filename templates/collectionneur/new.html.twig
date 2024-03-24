@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New P06Collectionneur{% endblock %}
+
+{% block body %}
+    <h1>Create new P06Collectionneur</h1>
+
+    {{ include('collectionneur/_form.html.twig') }}
+
+    <a href="{{ path('app_collectionneur_index') }}">back to list</a>
+{% endblock %}

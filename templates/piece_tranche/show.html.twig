@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P06PieceTranche{% endblock %}
+
+{% block body %}
+    <h1>P06PieceTranche</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ p06_piece_tranche.id }}</td>
+            </tr>
+            <tr>
+                <th>PieceTranche</th>
+                <td>{{ p06_piece_tranche.PieceTranche }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_piece_tranche_index') }}">back to list</a>
+
+    <a href="{{ path('app_piece_tranche_edit', {'id': p06_piece_tranche.id}) }}">edit</a>
+
+    {{ include('piece_tranche/_delete_form.html.twig') }}
+{% endblock %}

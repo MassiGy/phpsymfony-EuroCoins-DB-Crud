@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P06PieceModele index{% endblock %}
+
+{% block body %}
+    <h1>P06PieceModele index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>PieceVersion</th>
+                <th>PieceValeur</th>
+                <th>PieceDateFrappee</th>
+                <th>PieceQuantiteFrappee</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for p06_piece_modele in p06_piece_modeles %}
+            <tr>
+                <td>{{ p06_piece_modele.id }}</td>
+                <td>{{ p06_piece_modele.PieceVersion }}</td>
+                <td>{{ p06_piece_modele.PieceValeur }}</td>
+                <td>{{ p06_piece_modele.PieceDateFrappee ? p06_piece_modele.PieceDateFrappee|date('Y-m-d') : '' }}</td>
+                <td>{{ p06_piece_modele.PieceQuantiteFrappee }}</td>
+                <td>
+                    <a href="{{ path('app_piece_modele_show', {'id': p06_piece_modele.id}) }}">show</a>
+                    <a href="{{ path('app_piece_modele_edit', {'id': p06_piece_modele.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_piece_modele_new') }}">Create new</a>
+{% endblock %}

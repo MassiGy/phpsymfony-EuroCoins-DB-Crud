@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Repository\P06CollectionneurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -69,23 +70,23 @@ class P06Collectionneur
     /**
      * @return Collection<int, P06PieceModele>
      */
-    public function getCollectionnements(): Collection
+    public function getModelesCollectionnes(): Collection
     {
-        return $this->collectionnements;
+        return $this->modelesCollectionnes;
     }
 
-    public function addCollectionnement(P06PieceModele $collectionnement): self
+    public function addModeleCollectionne(P06PieceModele $modele): self
     {
-        if (!$this->collectionnements->contains($collectionnement)) {
-            $this->collectionnements[] = $collectionnement;
+        if (!$this->modelesCollectionnes->contains($modele)) {
+            $this->modelesCollectionnes[] = $modele;
         }
 
         return $this;
     }
 
-    public function removeCollectionnement(P06PieceModele $collectionnement): self
+    public function removeModeleCollectionne(P06PieceModele $modele): self
     {
-        $this->collectionnements->removeElement($collectionnement);
+        $this->modelesCollectionnes->removeElement($modele);
 
         return $this;
     }

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P06PieceCaracteristique{% endblock %}
+
+{% block body %}
+    <h1>P06PieceCaracteristique</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ p06_piece_caracteristique.id }}</td>
+            </tr>
+            <tr>
+                <th>PieceFaceCommune</th>
+                <td>{{ p06_piece_caracteristique.PieceFaceCommune }}</td>
+            </tr>
+            <tr>
+                <th>PieceMasse</th>
+                <td>{{ p06_piece_caracteristique.PieceMasse }}</td>
+            </tr>
+            <tr>
+                <th>PieceTaille</th>
+                <td>{{ p06_piece_caracteristique.PieceTaille }}</td>
+            </tr>
+            <tr>
+                <th>PieceMateriau</th>
+                <td>{{ p06_piece_caracteristique.PieceMateriau }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_piece_caracteristique_index') }}">back to list</a>
+
+    <a href="{{ path('app_piece_caracteristique_edit', {'id': p06_piece_caracteristique.id}) }}">edit</a>
+
+    {{ include('piece_caracteristique/_delete_form.html.twig') }}
+{% endblock %}

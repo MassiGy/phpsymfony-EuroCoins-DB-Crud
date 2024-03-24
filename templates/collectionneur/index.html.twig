@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P06Collectionneur index{% endblock %}
+
+{% block body %}
+    <h1>P06Collectionneur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CollectionneurNom</th>
+                <th>CollectionneurPrenom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for p06_collectionneur in p06_collectionneurs %}
+            <tr>
+                <td>{{ p06_collectionneur.id }}</td>
+                <td>{{ p06_collectionneur.CollectionneurNom }}</td>
+                <td>{{ p06_collectionneur.CollectionneurPrenom }}</td>
+                <td>
+                    <a href="{{ path('app_collectionneur_show', {'id': p06_collectionneur.id}) }}">show</a>
+                    <a href="{{ path('app_collectionneur_edit', {'id': p06_collectionneur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_collectionneur_new') }}">Create new</a>
+{% endblock %}

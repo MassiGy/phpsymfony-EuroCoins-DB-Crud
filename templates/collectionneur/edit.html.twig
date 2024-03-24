@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit P06Collectionneur{% endblock %}
+
+{% block body %}
+    <h1>Edit P06Collectionneur</h1>
+
+    {{ include('collectionneur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_collectionneur_index') }}">back to list</a>
+
+    {{ include('collectionneur/_delete_form.html.twig') }}
+{% endblock %}

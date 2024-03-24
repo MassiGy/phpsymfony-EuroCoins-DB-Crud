@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P06PieceCaracteristique index{% endblock %}
+
+{% block body %}
+    <h1>P06PieceCaracteristique index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>PieceFaceCommune</th>
+                <th>PieceMasse</th>
+                <th>PieceTaille</th>
+                <th>PieceMateriau</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for p06_piece_caracteristique in p06_piece_caracteristiques %}
+            <tr>
+                <td>{{ p06_piece_caracteristique.id }}</td>
+                <td>{{ p06_piece_caracteristique.PieceFaceCommune }}</td>
+                <td>{{ p06_piece_caracteristique.PieceMasse }}</td>
+                <td>{{ p06_piece_caracteristique.PieceTaille }}</td>
+                <td>{{ p06_piece_caracteristique.PieceMateriau }}</td>
+                <td>
+                    <a href="{{ path('app_piece_caracteristique_show', {'id': p06_piece_caracteristique.id}) }}">show</a>
+                    <a href="{{ path('app_piece_caracteristique_edit', {'id': p06_piece_caracteristique.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_piece_caracteristique_new') }}">Create new</a>
+{% endblock %}
