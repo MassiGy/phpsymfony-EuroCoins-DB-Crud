@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\P06PieceCaracteristiqueRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,7 +15,7 @@ class P06PieceCaracteristique
      * @ORM\Id
      * @ORM\Column(type="integer")
      */
-    private $CaracteristiqueID;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=250)
@@ -50,7 +49,7 @@ class P06PieceCaracteristique
 
     public function getId(): ?int
     {
-        return $this->CaracteristiqueID;
+        return $this->id;
     }
 
     public function getPieceFaceCommune(): ?string

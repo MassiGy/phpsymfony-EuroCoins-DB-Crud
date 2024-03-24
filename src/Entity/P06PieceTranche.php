@@ -16,7 +16,7 @@ class P06PieceTranche
      * @ORM\Id
      * @ORM\Column(type="integer")
      */
-    private $TrancheID;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=250)
@@ -35,7 +35,7 @@ class P06PieceTranche
 
     public function getId(): ?int
     {
-        return $this->TrancheID;
+        return $this->id;
     }
 
     public function getPieceTranche(): ?string

@@ -1,0 +1,4 @@
+* Create P06_Collectionner as a junction table, not as a standalone Entity. Then make sure that all 
+  the schemmas are valide using to doctrine:schemma:validate command.
+* Make crud for all the entities
+* Test the controlleurs.

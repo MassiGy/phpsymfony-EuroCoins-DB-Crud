@@ -2,7 +2,8 @@
 
 namespace App\Entity;
 
-use App\Repository\P06PieceModeleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -14,7 +15,7 @@ class P06PieceModele
      * @ORM\Id
      * @ORM\Column(type="integer")
      */
-    private $PieceID;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=250)
@@ -40,7 +41,7 @@ class P06PieceModele
      * @ORM\ManyToOne(targetEntity=P06PiecePays::class, inversedBy="PieceID")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $PiecePays;
+    private $PaysID;
 
     /**
      * @ORM\ManyToOne(targetEntity=P06PieceTranche::class, inversedBy="PieceID")
@@ -54,9 +55,19 @@ class P06PieceModele
      */
     private $PieceCaracteristique;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=P06Collectionneur::class, mappedBy="modelesCollectionnes")
+     */
+    private $collections;
+
+    public function __construct()
+    {
+        $this->collections = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
-        return $this->PieceID;
+        return $this->id;
     }
 
     public function getPieceVersion(): ?string
@@ -109,12 +120,12 @@ class P06PieceModele
 
     public function getPiecePays(): ?P06PiecePays
     {
-        return $this->PiecePays;
+        return $this->PaysID;
     }
 
     public function setPiecePays(?P06PiecePays $PiecePays): self
     {
-        $this->PiecePays = $PiecePays;
+        $this->PaysID = $PiecePays;
 
         return $this;
     }
@@ -139,6 +150,33 @@ class P06PieceModele
     public function setPieceCaracteristique(?P06PieceCaracteristique $PieceCaracteristique): self
     {
         $this->PieceCaracteristique = $PieceCaracteristique;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, P06Collectionneur>
+     */
+    public function getCollections(): Collection
+    {
+        return $this->collections;
+    }
+
+    public function addCollection(P06Collectionneur $collection): self
+    {
+        if (!$this->collections->contains($collection)) {
+            $this->collections[] = $collection;
+            $collection->addCollectionnement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCollection(P06Collectionneur $collection): self
+    {
+        if ($this->collections->removeElement($collection)) {
+            $collection->removeCollectionnement($this);
+        }
 
         return $this;
     }

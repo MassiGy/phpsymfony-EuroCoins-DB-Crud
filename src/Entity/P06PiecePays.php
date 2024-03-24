@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\P06PiecePaysRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,7 +15,7 @@ class P06PiecePays
      * @ORM\Id
      * @ORM\Column(type="integer")
      */
-    private $PaysID;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=250)
@@ -24,7 +23,8 @@ class P06PiecePays
     private $PaysNom;
 
     /**
-     * @ORM\OneToMany(targetEntity=P06PieceModele::class, mappedBy="PiecePays")
+     * @ORM\OneToMany(targetEntity=P06PieceModele::class, mappedBy="PaysID")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $PieceID;
 
@@ -35,7 +35,7 @@ class P06PiecePays
 
     public function getId(): ?int
     {
-        return $this->PaysID;
+        return $this->id;
     }
 
     public function getPaysNom(): ?string
