@@ -1,6 +1,5 @@
-* Inject the data into the database 
 * Test the controlleurs.
-* Make the UI responsive (bootstrap)
+* refactor
 
 
 

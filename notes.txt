@@ -17,3 +17,4 @@ Links:
 *   https://stackoverflow.com/questions/27094901/symfony-cant-we-have-a-hidden-entity-field
 *   https://stackoverflow.com/questions/41213014/could-not-determine-access-type-for-property-file
 *   https://stackoverflow.com/questions/30463674/symfony-form-not-saving-entity-with-manytomany-relation
+*   https://stackoverflow.com/questions/11034736/symfony2-formbuilder-add-a-class-to-the-field-and-input
