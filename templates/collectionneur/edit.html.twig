@@ -3,11 +3,18 @@
 {% block title %}Edit P06Collectionneur{% endblock %}
 
 {% block body %}
-    <h1>Edit P06Collectionneur</h1>
+    <h1 class="mb-5">Edit P06Collectionneur</h1>
 
-    {{ include('collectionneur/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="container">
+        
+            {{ include('collectionneur/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_collectionneur_index') }}">back to list</a>
+        <br/>
+        <br/>
+        <div class="d-flex">
+            <a  class="btn btn-primary mr-3" href="{{ path('app_collectionneur_index') }}">back to list</a>
 
-    {{ include('collectionneur/_delete_form.html.twig') }}
+            {{ include('collectionneur/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

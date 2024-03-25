@@ -3,9 +3,12 @@
 {% block title %}New P06PieceModele{% endblock %}
 
 {% block body %}
-    <h1>Create new P06PieceModele</h1>
+    <h1 class="mb-5">Create new P06PieceModele</h1>
 
     {{ include('piece_modele/_form.html.twig') }}
 
-    <a href="{{ path('app_piece_modele_index') }}">back to list</a>
+    <br/>
+    <br/>
+
+    <a class="btn btn-primary" href="{{ path('app_piece_modele_index') }}">back to list</a>
 {% endblock %}

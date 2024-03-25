@@ -3,9 +3,12 @@
 {% block title %}New P06PieceCaracteristique{% endblock %}
 
 {% block body %}
-    <h1>Create new P06PieceCaracteristique</h1>
+    <h1 class="mb-5">Create new P06PieceCaracteristique</h1>
 
     {{ include('piece_caracteristique/_form.html.twig') }}
 
-    <a href="{{ path('app_piece_caracteristique_index') }}">back to list</a>
+    <br/>
+    <br/>
+
+    <a class="btn btn-primary" href="{{ path('app_piece_caracteristique_index') }}">back to list</a>
 {% endblock %}

@@ -3,11 +3,17 @@
 {% block title %}Edit P06PieceModele{% endblock %}
 
 {% block body %}
-    <h1>Edit P06PieceModele</h1>
+    <h1 class="mb-5">Edit P06PieceModele</h1>
 
-    {{ include('piece_modele/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="container">
+        {{ include('piece_modele/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_piece_modele_index') }}">back to list</a>
+        <br/>
+        <br/>
+        <div class="d-flex">
+            <a class="btn btn-primary mr-3" href="{{ path('app_piece_modele_index') }}">back to list</a>
 
-    {{ include('piece_modele/_delete_form.html.twig') }}
+            {{ include('piece_modele/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}
