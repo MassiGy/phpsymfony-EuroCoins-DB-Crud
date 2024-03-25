@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\P06PiecePaysRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,17 +14,25 @@ use Doctrine\ORM\Mapping as ORM;
 class P06PiecePays
 {
     /**
+     * @var int
+     * @Assert\NotBlank
+     * @Assert\Positive
+     * 
      * @ORM\Id
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
+     * @var string 
+     * @Assert\NotBlank
+     * 
      * @ORM\Column(type="string", length=250)
      */
     private $PaysNom;
 
     /**
+     * @var Collection<int, P06PieceModele>
      * @ORM\OneToMany(targetEntity=P06PieceModele::class, mappedBy="PiecePays")
      * @ORM\JoinColumn(nullable=false)
      */

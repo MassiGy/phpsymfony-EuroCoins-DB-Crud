@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\P06PieceCaracteristiqueRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,32 +14,62 @@ use Doctrine\ORM\Mapping as ORM;
 class P06PieceCaracteristique
 {
     /**
+     * @var int
+     * @Assert\NotBlank
+     * @Assert\Positive
+     * 
      * @ORM\Id
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
+     * @var int
+     * @Assert\NotBlank
+     * @Assert\Positive
+     * 
      * @ORM\Column(type="string", length=250)
      */
     private $PieceFaceCommune;
 
     /**
+     * @var int
+     * @Assert\NotBlank
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 10000,     
+     *      notInRangeMessage = "mass should not exceed 10000 miligrames"
+     * )
+     * 
      * @ORM\Column(type="integer")
      */
     private $PieceMasse;
 
     /**
+     * @var int
+     * @Assert\NotBlank
+     * @Assert\Positive
+     * @Assert\Range(
+     *      min=50,
+     *      max=200,         
+     *      notInRangeMessage="size should not exceed 200 milimiters"
+     * )
+     * 
      * @ORM\Column(type="integer")
      */
     private $PieceTaille;
 
     /**
+     * @var string 
+     * @Assert\NotBlank
+     * 
      * @ORM\Column(type="string", length=250)
      */
     private $PieceMateriau;
 
     /**
+     * @var  Collection<int, P06PieceModele> 
+     * 
      * @ORM\OneToMany(targetEntity=P06PieceModele::class, mappedBy="PieceCaracteristique")
      */
     private $PieceID;

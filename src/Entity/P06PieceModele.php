@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\P06PieceModeleRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,27 +14,44 @@ use Doctrine\ORM\Mapping as ORM;
 class P06PieceModele
 {
     /**
+     * @var int
+     * @Assert\NotBlank
+     * @Assert\Positive
+     * 
      * @ORM\Id
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
+     * @var string
+     * @Assert\NotBlank
+     * 
      * @ORM\Column(type="string", length=250)
      */
     private $PieceVersion;
 
     /**
+     * @var int
+     * @Assert\NotBlank
+     * @Assert\Positive
+     * 
      * @ORM\Column(type="integer")
      */
     private $PieceValeur;
 
     /**
+     * @Assert\NotBlank
+     * @todo: maybe add a range (when does this all started ?) 
+     * 
      * @ORM\Column(type="date")
      */
     private $PieceDateFrappee;
 
     /**
+     * @var int
+     * @Assert\NotBlank
+     * @Assert\Positive
      * @ORM\Column(type="bigint")
      */
     private $PieceQuantiteFrappee;
@@ -57,10 +75,12 @@ class P06PieceModele
     private $PieceCaracteristique;
 
     /**
+     * @todo: changer nom attribut, il contient la liste des collectionneurs ayant ce modele et pas les collections
+     * attention, il faudra donc changer les template et les fichier de test aussi et les forumulaire (refaire make:crud)
+     * 
      * @ORM\ManyToMany(targetEntity=P06Collectionneur::class, mappedBy="modelesCollectionnes")
      */
-    private $collections; // @todo: changer nom attribut, il contient la liste des collectionneurs ayant ce modele et pas les collections
-                          //        attention, il faudra donc changer les template et les fichier de test aussi et les forumulaire (refaire make:crud)
+    private $collections;
 
 
     public function __construct()

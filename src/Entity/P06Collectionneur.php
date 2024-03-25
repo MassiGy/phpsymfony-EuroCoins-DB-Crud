@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\P06CollectionneurRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,22 +14,33 @@ use Doctrine\ORM\Mapping as ORM;
 class P06Collectionneur
 {
     /**
+     * @var int
+     * @Assert\NotBlank
+     * 
      * @ORM\Id
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
+     * @var string 
+     * @Assert\NotBlank
+     * 
      * @ORM\Column(type="string", length=250)
      */
     private $CollectionneurNom;
 
     /**
+     * @var string
+     * @Assert\NotBlank 
+     * 
      * @ORM\Column(type="string", length=250)
      */
     private $CollectionneurPrenom;
 
     /**
+     * @var Collection<int, P06PieceModele>
+     * 
      * @ORM\ManyToMany(targetEntity=P06PieceModele::class, inversedBy="collections")
      */
     private $modelesCollectionnes;
