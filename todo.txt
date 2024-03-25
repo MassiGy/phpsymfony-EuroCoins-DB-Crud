@@ -1,7 +1,6 @@
 * Test the controllers.
 * Optimize the controllers
 * refactor
-* Add styles to the form fields
 
 
 
