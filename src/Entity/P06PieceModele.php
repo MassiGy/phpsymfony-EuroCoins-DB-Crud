@@ -33,6 +33,7 @@ class P06PieceModele
 
     /**
      * @var int
+     * @Assert\Type(type="integer")
      * @Assert\NotBlank
      * @Assert\Positive
      * 
@@ -50,6 +51,7 @@ class P06PieceModele
 
     /**
      * @var int
+     * @Assert\Type(type="integer")
      * @Assert\NotBlank
      * @Assert\Positive
      * @ORM\Column(type="bigint")

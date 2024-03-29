@@ -1,5 +1,5 @@
-* Make sure that the validation flash messages are not sent twice 
-* Change the label of collections to "collectionneurs"
+
+-- Bonus (further tests)
 * Test the controllers.
 * Optimize the controllers
 * refactor

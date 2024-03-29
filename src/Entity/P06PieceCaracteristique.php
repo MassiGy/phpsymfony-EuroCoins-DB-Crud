@@ -33,6 +33,7 @@ class P06PieceCaracteristique
 
     /**
      * @var int
+     * @Assert\Type(type="integer")
      * @Assert\NotBlank
      * @Assert\Range(
      *      min = 0,
@@ -46,6 +47,7 @@ class P06PieceCaracteristique
 
     /**
      * @var int
+     * @Assert\Type(type="integer")
      * @Assert\NotBlank
      * @Assert\Positive
      * @Assert\Range(

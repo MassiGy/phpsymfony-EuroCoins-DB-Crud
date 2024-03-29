@@ -26,7 +26,7 @@ class P06PieceCaracteristiqueType extends AbstractType
             // ])
             ->add('PieceFaceCommune', TextType::class, [
                 "required"  => true,
-                // "constraints" => [
+                // "constrajnts" => [
                 //     new NotBlank(),
                 // ]
             ])
