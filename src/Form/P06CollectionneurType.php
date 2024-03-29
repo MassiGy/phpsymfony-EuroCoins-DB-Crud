@@ -16,16 +16,16 @@ class P06CollectionneurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('id', NumberType::class, [
-                "required" => true,
-                "constraints" => [
-                    new NotBlank(),
-                    new Positive()
-                ],
-                "attr" => [
-                    // "class" => "d-flex"
-                ]
-            ])
+            // ->add('id', NumberType::class, [
+            //     "required" => true,
+            //     "constraints" => [
+            //         new NotBlank(),
+            //         new Positive()
+            //     ],
+            //     "attr" => [
+            //         // "class" => "d-flex"
+            //     ]
+            // ])
             ->add('CollectionneurNom', TextType::class, [
                 "required" => true,
                 "constraints" => [

@@ -13,12 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class P06PieceCaracteristique
 {
+    //  * @Assert\NotBlank
+    //  * @Assert\Positive
     /**
      * @var int
-     * @Assert\NotBlank
-     * @Assert\Positive
-     * 
      * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;

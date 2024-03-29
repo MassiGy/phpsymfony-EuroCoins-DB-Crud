@@ -16,13 +16,13 @@ class P06PieceTrancheType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('id', NumberType::class, [
-                "required" => true,
-                "constraints" => [
-                    new NotBlank(),
-                    new Positive()
-                ]
-            ])
+            // ->add('id', NumberType::class, [
+            //     "required" => true,
+            //     "constraints" => [
+            //         new NotBlank(),
+            //         new Positive()
+            //     ]
+            // ])
             ->add('PieceTranche', TextType::class, [
                 "required" => true,
                 "constraints" => [

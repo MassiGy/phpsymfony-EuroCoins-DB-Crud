@@ -13,11 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class P06Collectionneur
 {
+    //  * @Assert\NotBlank
     /**
      * @var int
-     * @Assert\NotBlank
-     * 
      * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;

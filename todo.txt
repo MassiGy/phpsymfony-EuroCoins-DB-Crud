@@ -1,3 +1,6 @@
+* Change the ids annotations to ORM\GeneratedValue so as the user does not have to set 
+  them manually.
+* Change the label of collections to "collectionneurs"
 * Test the controllers.
 * Optimize the controllers
 * refactor

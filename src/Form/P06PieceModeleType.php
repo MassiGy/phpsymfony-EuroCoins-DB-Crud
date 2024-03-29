@@ -17,13 +17,13 @@ class P06PieceModeleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('id', NumberType::class, [
-                "required" => true,
-                "constraints" => [
-                    new NotBlank(),
-                    new Positive()
-                ]
-            ])
+            // ->add('id', NumberType::class, [
+            //     "required" => true,
+            //     "constraints" => [
+            //         new NotBlank(),
+            //         new Positive()
+            //     ]
+            // ])
             ->add('PieceVersion', TextType::class, [
                 "required" => true,
                 "constraints" => [
