@@ -18,17 +18,15 @@ Cette base de données créée au semestre n°1 est intéressante pour ses diff�
 Le sujet nous demande de repartir de la base de données du premier semestre. Or, nous avons remarqué une erreur dans cette dernière : Il y a entre `PieceModele` et `PieceCaracteristique` une relation one-to-many. En effet, une caractéristique peut être détenue par plusieurs modèles. Ainsi, l'entité forte est `PieceCaracteristique`, c'est donc `PieceModele` qui doit avoir la clé étrangère de `PieceCaracteristique`. Or, c'est l'inverse qui a été fait. Il y a donc deux versions :
 
 - Version 1 (`dev-dorian`) : Repars de cette base et implémente le CRUD **sans correction**.
-- Version 2 (`dev-massiles`) : **Corrige le bug** et implémente le CRUD à partir de cette base corrigée.
+- Version 2 (`dev-massiles`) : **Corrige le bug** et implémente le CRUD à partir de cette base corrigée. (voir fichier db/P06_AlimentationMySQL.local.sql)
 
 ## Installer les dépendances (mise en route du projet)
 
-```bash
-$ sudo apt-get install php8.1-xml
-$ composer install --no-dev --optimize-autoloader
-$ composer recipes
-$ composer update
-$ composer install
-$ symfony server:start
+```sh
+    $ composer install 
+    $ composer recipes
+    $ composer update
+    $ symfony server:start
 ```
 
 
@@ -60,6 +58,8 @@ Ces mesures de sécurité garantissent que notre site est protégé contre les a
 
 1. La relation many-to-many présente entre PieceModele et Collectionneur est représentée par une table de jonction dans la base de données créée à partir de Doctrine ORM. Il faut noter que la table de jointure n'est pas connectée à une entité à part entière. Ainsi, elle n'a pas d'attribut appelé `QteCollection` comme le schéma Entité/Association l'indique. Cependant, cette valeur peut être calculée facilement grâce à la fonction `count()` de SQL.
 
-2. En ce qui concerne la relation many-to-many entre PieceModele et Collectionneur, l'attribut faisant référence à Collectionneur depuis PieceModele est appelé 'collections' et cela devrait être modifié pour un meilleur nom (comme : 'collectionneurs'). Notez que si une telle action est entreprise, les actifs/fichiers CRUD associés devraient être régénérés.
+2. En ce qui concerne la relation many-to-many entre PieceModele et Collectionneur, l'attribut faisant référence à Collectionneur depuis PieceModele est appelé 'collections' et cela devrait être modifié pour un meilleur nom (comme : 'collectionneurs'). Notez que si une telle action est entreprise, les fichiers CRUD associés devraient être régénérés.
 
 3. En ce qui concerne la relation many-to-many, Doctrine ne configure pas de mappings bidirectionnels dans la base de données pour les deux entités concernées dans la relation. Il établit uniquement un mapping unidirectionnel depuis le côté propriétaire (l'entité contenant la clé inversedBy), mais il ne le fait pas pour l'autre côté (l'entité contenant la clé mappedBy), cela doit être fait manuellement dans les contrôleurs, ou cela peut être ajouté en tant que fonction listener d'événement dans le formulaire pour cette EntityClasseType.
+
+4. Autres points sont détaillés dans le fichier `notes.txt`.
