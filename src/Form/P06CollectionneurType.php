@@ -16,6 +16,17 @@ class P06CollectionneurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+
+            /** @NOTE: The id are ignored since it is a generated
+             *  value, but the code is kept commented in order
+             *  to be able to test and iterate quickly.
+             * 
+             *  @NOTE: The constraints are also commented from 
+             *  the form fields since they were already implemented 
+             *  in the entities. Otherwise duplicated flash messages 
+             *  will be sent to the end user.
+             */
+
             // ->add('id', NumberType::class, [
             //     "required" => true,
             //     "constraints" => [
@@ -28,15 +39,15 @@ class P06CollectionneurType extends AbstractType
             // ])
             ->add('CollectionneurNom', TextType::class, [
                 "required" => true,
-                "constraints" => [
-                    new NotBlank(),
-                ]
+                // "constraints" => [
+                //     new NotBlank(),
+                // ]
             ])
             ->add('CollectionneurPrenom', TextType::class, [
                 "required" => true,
-                "constraints" => [
-                    new NotBlank(),
-                ]
+                // "constraints" => [
+                //     new NotBlank(),
+                // ]
             ])
             ->add('modelesCollectionnes')
         ;

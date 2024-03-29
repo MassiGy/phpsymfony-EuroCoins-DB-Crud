@@ -25,9 +25,9 @@ class P06PiecePaysType extends AbstractType
             // ])
             ->add('PaysNom', TextType::class, [
                 "required" => true,
-                "constraints" => [
-                    new NotBlank()
-                ]
+                // "constraints" => [
+                //     new NotBlank()
+                // ]
             ])
         ;
     }

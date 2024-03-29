@@ -26,40 +26,40 @@ class P06PieceCaracteristiqueType extends AbstractType
             // ])
             ->add('PieceFaceCommune', NumberType::class, [
                 "required"  => true,
-                "constraints" => [
-                    new NotBlank(),
-                    new Positive()
-                ]
+                // "constraints" => [
+                //     new NotBlank(),
+                //     new Positive()
+                // ]
             ])
             ->add('PieceMasse', NumberType::class, [
                 "required" => true,
-                "constraints" => [
-                    new NotBlank(),
-                    new Positive(),
-                    new Range([
-                        "min" => 0,
-                        "max" => 10000,
-                        "notInRangeMessage" => "mass should not exceed 10000 miligrames"
-                    ])
-                ]
+                // "constraints" => [
+                //     new NotBlank(),
+                //     new Positive(),
+                //     new Range([
+                //         "min" => 0,
+                //         "max" => 10000,
+                //         "notInRangeMessage" => "mass should not exceed 10000 miligrames"
+                //     ])
+                // ]
             ])
             ->add('PieceTaille', NumberType::class, [
                 "required" => true,
-                "constraints" => [
-                    new NotBlank(),
-                    new Positive(),
-                    new Range([
-                        "min" => 50,
-                        "max" => 200,
-                        "notInRangeMessage" => "size should not exceed 200 milimiters"
-                    ])
-                ]
+                // "constraints" => [
+                //     new NotBlank(),
+                //     new Positive(),
+                //     new Range([
+                //         "min" => 50,
+                //         "max" => 200,
+                //         "notInRangeMessage" => "size should not exceed 200 milimiters"
+                //     ])
+                // ]
             ])
             ->add('PieceMateriau', TextType::class, [
                 "required" => true,
-                "constraints" => [
-                    new NotBlank(),
-                ]
+                // "constraints" => [
+                //     new NotBlank(),
+                // ]
             ])
         ;
     }

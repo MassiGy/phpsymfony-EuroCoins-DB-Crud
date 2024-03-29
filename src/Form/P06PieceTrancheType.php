@@ -25,9 +25,9 @@ class P06PieceTrancheType extends AbstractType
             // ])
             ->add('PieceTranche', TextType::class, [
                 "required" => true,
-                "constraints" => [
-                    new NotBlank()
-                ]
+                // "constraints" => [
+                //     new NotBlank()
+                // ]
             ])
         ;
     }

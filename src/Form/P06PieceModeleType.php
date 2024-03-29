@@ -26,33 +26,33 @@ class P06PieceModeleType extends AbstractType
             // ])
             ->add('PieceVersion', TextType::class, [
                 "required" => true,
-                "constraints" => [
-                    new NotBlank()
-                ]
+                // "constraints" => [
+                //     new NotBlank()
+                // ]
             ])
             ->add('PieceValeur', NumberType::class, [
                 "required" => true,
-                "constraints" => [
-                    new NotBlank(),
-                    new Positive()
-                ]
+                // "constraints" => [
+                //     new NotBlank(),
+                //     new Positive()
+                // ]
             ])
             ->add('PieceDateFrappee', DateType::class, array(
                  'widget' => 'choice',
-                 'years' => range(date('Y')-100, date('Y')+100),
-                 'months' => range(date('m'), 12),
-                 'days' => range(date('d'), 31),
+                 'years' => range(date('Y')-100, date('Y')),
+                 'months' => range(1, 12),
+                 'days' => range(1, 31),
                  "required" => true,
-                 "constraints" => [
-                    new NotBlank(),
-                 ]
+                //  "constraints" => [
+                //     new NotBlank(),
+                //  ]
             ))
             ->add('PieceQuantiteFrappee', NumberType::class, [
                 "required" => true,
-                "constraints" => [
-                    new NotBlank(),
-                    new Positive()
-                ]
+                // "constraints" => [
+                //     new NotBlank(),
+                //     new Positive()
+                // ]
             ])
             ->add('PiecePays')
             ->add('PieceTranche')
