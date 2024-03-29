@@ -8,7 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>PaysNom</th>
                 <th>actions</th>
             </tr>
@@ -16,7 +16,7 @@
         <tbody>
         {% for p06_piece_pay in p06_piece_pays %}
             <tr>
-                <td>{{ p06_piece_pay.id }}</td>
+                {# <td>{{ p06_piece_pay.id }}</td> #}
                 <td>{{ p06_piece_pay.PaysNom }}</td>
                 <td class="d-flex">
                     <a class="btn btn-primary mx-3" href="{{ path('app_piece_pays_show', {'id': p06_piece_pay.id}) }}">show</a>

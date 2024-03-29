@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\P06PieceCaracteristique;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -54,7 +55,7 @@ class P06PieceCaracteristiqueType extends AbstractType
                     ])
                 ]
             ])
-            ->add('PieceMateriau', NumberType::class, [
+            ->add('PieceMateriau', TextType::class, [
                 "required" => true,
                 "constraints" => [
                     new NotBlank(),

@@ -8,7 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>PieceVersion</th>
                 <th>PieceValeur</th>
                 <th>PieceDateFrappee</th>
@@ -19,7 +19,7 @@
         <tbody>
         {% for p06_piece_modele in p06_piece_modeles %}
             <tr>
-                <td>{{ p06_piece_modele.id }}</td>
+                {# <td>{{ p06_piece_modele.id }}</td> #}
                 <td>{{ p06_piece_modele.PieceVersion }}</td>
                 <td>{{ p06_piece_modele.PieceValeur }}</td>
                 <td>{{ p06_piece_modele.PieceDateFrappee ? p06_piece_modele.PieceDateFrappee|date('Y-m-d') : '' }}</td>
