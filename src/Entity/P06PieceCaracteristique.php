@@ -24,9 +24,8 @@ class P06PieceCaracteristique
     private $id;
 
     /**
-     * @var int
+     * @var string
      * @Assert\NotBlank
-     * @Assert\Positive
      * 
      * @ORM\Column(type="string", length=250)
      */

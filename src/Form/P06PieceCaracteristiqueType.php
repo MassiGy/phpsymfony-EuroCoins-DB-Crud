@@ -24,11 +24,10 @@ class P06PieceCaracteristiqueType extends AbstractType
             //         new Positive()
             //     ]
             // ])
-            ->add('PieceFaceCommune', NumberType::class, [
+            ->add('PieceFaceCommune', TextType::class, [
                 "required"  => true,
                 // "constraints" => [
                 //     new NotBlank(),
-                //     new Positive()
                 // ]
             ])
             ->add('PieceMasse', NumberType::class, [
