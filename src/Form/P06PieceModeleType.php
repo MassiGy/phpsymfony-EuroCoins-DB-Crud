@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\P06PieceModele;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -30,7 +31,7 @@ class P06PieceModeleType extends AbstractType
                 //     new NotBlank()
                 // ]
             ])
-            ->add('PieceValeur', NumberType::class, [
+            ->add('PieceValeur', IntegerType::class, [
                 "required" => true,
                 // "constraints" => [
                 //     new NotBlank(),
@@ -47,7 +48,7 @@ class P06PieceModeleType extends AbstractType
                 //     new NotBlank(),
                 //  ]
             ))
-            ->add('PieceQuantiteFrappee', NumberType::class, [
+            ->add('PieceQuantiteFrappee', IntegerType::class, [
                 "required" => true,
                 // "constraints" => [
                 //     new NotBlank(),

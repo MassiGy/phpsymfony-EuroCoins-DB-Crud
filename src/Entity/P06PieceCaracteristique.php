@@ -38,7 +38,7 @@ class P06PieceCaracteristique
      * @Assert\Range(
      *      min = 0,
      *      max = 10000,     
-     *      notInRangeMessage = "mass should not exceed 10000 miligrames"
+     *      notInRangeMessage = "mass should be positive and should not exceed 10000 miligrames"
      * )
      * 
      * @ORM\Column(type="integer")
@@ -53,7 +53,7 @@ class P06PieceCaracteristique
      * @Assert\Range(
      *      min=50,
      *      max=200,         
-     *      notInRangeMessage="size should not exceed 200 milimiters"
+     *      notInRangeMessage="size should be greater then or equal to 50 and should not exceed 200 milimiters"
      * )
      * 
      * @ORM\Column(type="integer")

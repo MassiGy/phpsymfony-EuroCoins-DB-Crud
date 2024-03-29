@@ -27,3 +27,4 @@ Links:
 *   https://stackoverflow.com/questions/30463674/symfony-form-not-saving-entity-with-manytomany-relation
 *   https://stackoverflow.com/questions/11034736/symfony2-formbuilder-add-a-class-to-the-field-and-input
 *   https://stackoverflow.com/questions/27472538/cascade-remove-vs-orphanremoval-true-vs-ondelete-cascade
+*   https://stackoverflow.com/questions/10470735/validation-an-integer-input-from-a-form

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\P06PieceCaracteristique;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -30,7 +31,7 @@ class P06PieceCaracteristiqueType extends AbstractType
                 //     new NotBlank(),
                 // ]
             ])
-            ->add('PieceMasse', NumberType::class, [
+            ->add('PieceMasse', IntegerType::class, [
                 "required" => true,
                 // "constraints" => [
                 //     new NotBlank(),
@@ -42,7 +43,7 @@ class P06PieceCaracteristiqueType extends AbstractType
                 //     ])
                 // ]
             ])
-            ->add('PieceTaille', NumberType::class, [
+            ->add('PieceTaille', IntegerType::class, [
                 "required" => true,
                 // "constraints" => [
                 //     new NotBlank(),

@@ -54,7 +54,8 @@ class P06PieceModele
      * @Assert\Type(type="integer")
      * @Assert\NotBlank
      * @Assert\Positive
-     * @ORM\Column(type="bigint")
+     * 
+     * @ORM\Column(type="integer")
      */
     private $PieceQuantiteFrappee;
 
