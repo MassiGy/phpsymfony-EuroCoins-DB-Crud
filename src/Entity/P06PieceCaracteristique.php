@@ -71,7 +71,7 @@ class P06PieceCaracteristique
     /**
      * @var  Collection<int, P06PieceModele> 
      * 
-     * @ORM\OneToMany(targetEntity=P06PieceModele::class, mappedBy="PieceCaracteristique")
+     * @ORM\OneToMany(targetEntity=P06PieceModele::class, mappedBy="PieceCaracteristique", cascade={"remove"})
      */
     private $PieceID;
 

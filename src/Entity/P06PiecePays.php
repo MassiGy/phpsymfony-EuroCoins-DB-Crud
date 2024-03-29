@@ -33,7 +33,7 @@ class P06PiecePays
 
     /**
      * @var Collection<int, P06PieceModele>
-     * @ORM\OneToMany(targetEntity=P06PieceModele::class, mappedBy="PiecePays")
+     * @ORM\OneToMany(targetEntity=P06PieceModele::class, mappedBy="PiecePays", cascade={"remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $PiecesModelesProduits;
