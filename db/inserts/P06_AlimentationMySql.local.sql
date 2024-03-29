@@ -1,3 +1,21 @@
+/*
+    @author: Massiles Ghernaout (dev-massiles)
+    @motive: The diffrence between this file and the P06_AlimentationMysql.sql file
+    is that this file has the correct relationships setup. This is the corrected 
+    version of the two files.
+
+    For instance: 
+    In the adjacent file, P06_AlimentationMysql, PieceModele is not the table that 
+    is containing the primary key of PiecePays, even though it should be the case.
+
+    Same thing can be said for PieceTranche, PieceCaracteristique...
+
+    TL;DR: 
+
+    This file corrects the relationships for the database as the E/A diagram illustrates
+    them. Note that this file is only use in git/dev-massiles branch.
+
+*/
 DELETE FROM p06_piece_tranche WHERE 1=1;
 DELETE FROM p06_piece_pays WHERE 1=1;
 DELETE FROM p06_piece_caracteristique WHERE 1=1;
