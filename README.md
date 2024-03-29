@@ -20,7 +20,7 @@ Le sujet nous demande de repartir de la base de données du premier semestre. Or
 - Version 1 (`dev-dorian`) : Repars de cette base et implémente le CRUD **sans correction**.
 - Version 2 (`dev-massiles`) : **Corrige le bug** et implémente le CRUD à partir de cette base corrigée. (voir fichier db/P06_AlimentationMySQL.local.sql)
 
-**Version à prendre en compte:** version sur la branche `dev-massiles`.
+**Version à prendre en compte:** version sur la branche `dev-massiles`, étant donné que c'est celle-ci qui vient avec le bon jeu de donnée et le bon setup pour les entités et les relations entre celles-ci. Toutefois, la version `dev-dorian` vient avec une interface plus élaborée.
 
 
 ## Installer les dépendances (mise en route du projet)
