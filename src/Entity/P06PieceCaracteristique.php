@@ -7,6 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\P06PieceModele;
 
 /**
  * @ORM\Entity(repositoryClass=P06PieceCaracteristiqueRepository::class)
