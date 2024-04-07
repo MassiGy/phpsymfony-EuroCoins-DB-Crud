@@ -7,6 +7,11 @@ Auteurs:
 
 Nous avons choisi le sujet n° **1**.
 
+Liens:
+- Github: https://github.com/MassiGy/phpsymfony-EuroCoins-DB-Crud
+- Gitlab: https://www-apps.univ-lehavre.fr/forge/gm213204/projetwebsymfony 
+
+
 ## Base de données
 
 ![Schema Relationnel de la Base de Données](BD.png)
